@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>muxin-modeles</artifactId>
+        <groupId>com.muxin</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>muxin-modeles-system</artifactId>
+    <packaging>jar</packaging>
+
+    <name>muxin-modeles-system</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.muxin</groupId>
+            <artifactId>muxin-common-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.muxin</groupId>
+            <artifactId>muxin-common-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.muxin</groupId>
+            <artifactId>muxin-common-swagger</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.muxin</groupId>-->
+<!--            <artifactId>muxin-common-openapi</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.muxin</groupId>
+            <artifactId>muxin-common-datasource</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>12.2.0.1</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
