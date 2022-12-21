@@ -24,7 +24,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel("用户校验dto")
-public class CheckUserDto implements Serializable {
+public class CheckUserVo implements Serializable {
 
     /**
      * 在更新时校验id
