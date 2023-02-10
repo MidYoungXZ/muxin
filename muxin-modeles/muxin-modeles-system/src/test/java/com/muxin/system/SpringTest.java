@@ -11,6 +11,7 @@ import com.muxin.system.manager.IRgLabelService;
 import com.muxin.system.manager.ISysUserService;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.el.util.ReflectionUtil;
+import org.apache.ibatis.logging.Log;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

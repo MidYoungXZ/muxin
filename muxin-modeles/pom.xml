@@ -15,6 +15,7 @@
     <modules>
         <module>muxin-modeles-system</module>
         <module>muxin-modeles-gen</module>
+        <module>muxin-modeles-demo</module>
     </modules>
 
     <properties>
