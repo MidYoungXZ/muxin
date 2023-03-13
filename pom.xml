@@ -17,7 +17,10 @@
   <url>http://maven.apache.org</url>
   <modules>
     <module>muxin-common</module>
-    <module>muxin-modeles</module>
+    <module>muxin-demo</module>
+    <module>muxin-gateway</module>
+    <module>muxin-generator</module>
+    <module>muxin-system</module>
   </modules>
 
   <properties>
@@ -32,13 +35,18 @@
     <mybatis-plus.version>3.4.2</mybatis-plus.version>
     <mybatis-plus.generator.version>3.4.1</mybatis-plus.generator.version>
     <freemarker.version>2.3.28</freemarker.version>
+    <spring-gateway.version>2.2.9.RELEASE</spring-gateway.version>
   </properties>
 
 
   <dependencyManagement>
     <dependencies>
 
-
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-gateway</artifactId>
+        <version>${spring-gateway.version}</version>
+      </dependency>
 
       <!-- 本工程 -->
       <dependency>

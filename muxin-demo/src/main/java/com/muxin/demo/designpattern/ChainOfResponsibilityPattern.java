@@ -13,8 +13,11 @@ public class ChainOfResponsibilityPattern {
     public static void main(String[] args) {
 
         DirectorApprovalHandler directorApprovalHandler = new DirectorApprovalHandler();
+
         HrApprovalHandler hrApprovalHandler = new HrApprovalHandler();
+
         GroupLeaderApprovalHandler groupLeaderApprovalHandler = new GroupLeaderApprovalHandler();
+
         groupLeaderApprovalHandler.nextHandler(directorApprovalHandler);
         directorApprovalHandler.nextHandler(hrApprovalHandler);
 
