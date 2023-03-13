@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * 标签表 服务实现类
  * </p>
  *
- * @author 邦盛科技
+ * @author muxin
  * @since 2022-11-21
  */
 @Service

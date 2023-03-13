@@ -31,7 +31,7 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("邦盛科技");
+        gc.setAuthor("muxin");
         gc.setOpen(false);
         gc.setSwagger2(true); //实体属性 Swagger2 注解
         //idtype todo 不生效啊

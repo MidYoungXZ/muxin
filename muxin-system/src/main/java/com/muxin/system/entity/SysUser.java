@@ -18,7 +18,7 @@ import java.util.Date;
  * 系统用户表
  * </p>
  *
- * @author 邦盛科技
+ * @author muxin
  * @since 2022-11-14
  */
 @Data

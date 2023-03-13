@@ -8,7 +8,7 @@ import com.muxin.system.entity.SysUser;
  * 用户表 服务类
  * </p>
  *
- * @author 邦盛科技
+ * @author muxin
  * @since 2022-11-14
  */
 public interface ISysUserService extends IService<SysUser> {

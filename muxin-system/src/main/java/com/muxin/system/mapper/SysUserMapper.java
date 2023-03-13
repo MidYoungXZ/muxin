@@ -8,7 +8,7 @@ import com.muxin.system.entity.SysUser;
  * 用户表 Mapper 接口
  * </p>
  *
- * @author 邦盛科技
+ * @author muxin
  * @since 2022-11-14
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {

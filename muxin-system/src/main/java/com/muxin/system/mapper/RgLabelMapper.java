@@ -8,7 +8,7 @@ import com.muxin.system.entity.RgLabel;
  * 标签表 Mapper 接口
  * </p>
  *
- * @author 邦盛科技
+ * @author muxin
  * @since 2022-11-21
  */
 public interface RgLabelMapper extends BaseMapper<RgLabel> {
