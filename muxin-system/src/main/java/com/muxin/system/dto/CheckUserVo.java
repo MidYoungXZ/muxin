@@ -1,8 +1,9 @@
 package com.muxin.system.dto;
 
 import com.muxin.common.core.annotation.CheckMobile;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel("用户校验dto")
+@Tag(name = "用户校验dto")
 public class CheckUserVo implements Serializable {
 
     /**
@@ -31,7 +32,7 @@ public class CheckUserVo implements Serializable {
      */
     @NotNull(message = "修改的id不能为空", groups = Update.class)
     @Null(message = "新增的id必须为空", groups = Add.class)
-    @ApiModelProperty(value = "新增的id",dataType = "String",name = "uid",example = "1")
+    @Schema(name = "新增的id",type = "String",example = "1")
     private Long uid;
 
     /**
@@ -48,7 +49,7 @@ public class CheckUserVo implements Serializable {
 
     @NotBlank(message = "username不能为空")
     @Length(min = 6, max = 10)
-    @ApiModelProperty(value = "新增的username",dataType = "String",name = "username",example = "admin")
+    @Schema(type = "String",name = "username",example = "admin")
     private String username;
 
 

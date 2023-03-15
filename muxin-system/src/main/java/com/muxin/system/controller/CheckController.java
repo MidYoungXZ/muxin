@@ -3,9 +3,9 @@ package com.muxin.system.controller;
 
 
 import com.muxin.system.dto.CheckUserVo;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -23,20 +23,20 @@ import javax.validation.constraints.NotBlank;
  */
 @RestController
 @Validated
-@Tag(name = "",description = "用户校验前端控制器")
+@Tag(name = "用户校验前端控制器",description = "用户校验前端控制器")
 @Slf4j
 public class CheckController {
 
     @Operation( method = "getById",summary = "根据id获取用户信息")
     @GetMapping("/checkUser/getById/{id}")
-    @ApiImplicitParams( @ApiImplicitParam (name = "id", value = "用户id",required = true, dataType = "Long", paramType = "path"))
+    @Parameters( @Parameter (name = "id",required = true))
     public CheckUserVo getById(@PathVariable("id") @Min(1) @Max(20) Long id) {
         log.info("根据id:{}获取用户信息",id);
         return new CheckUserVo(id, "username", "123456", "123@qq.com", "13812341239");
     }
 
     @Operation(summary = "根据邮箱获取用户信息")
-    @ApiImplicitParams( @ApiImplicitParam (name = "email", value = "用户邮箱",required = true, dataType = "String", paramType = "query"))
+    @Parameters( @Parameter (name = "email",required = true))
     @GetMapping("/checkUser/getByEmail")
     public CheckUserVo getByEmail(@NotBlank(message = "邮箱不能为空") @Email String email) {
         return null;

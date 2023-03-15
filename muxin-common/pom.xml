@@ -13,9 +13,8 @@
     <name>muxin-common</name>
     <url>http://maven.apache.org</url>
     <modules>
-        <module>muxin-common-core</module>
+        <module>muxin-common-basic</module>
         <module>muxin-common-redis</module>
-        <module>muxin-common-swagger</module>
         <module>muxin-common-datasource</module>
         <module>muxin-common-openapi</module>
     </modules>

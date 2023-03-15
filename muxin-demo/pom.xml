@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.muxin</groupId>
-            <artifactId>muxin-common-core</artifactId>
+            <artifactId>muxin-common-basic</artifactId>
         </dependency>
         <dependency>
             <groupId>com.muxin</groupId>

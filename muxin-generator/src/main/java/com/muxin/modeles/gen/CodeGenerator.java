@@ -33,7 +33,7 @@ public class CodeGenerator {
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("muxin");
         gc.setOpen(false);
-        gc.setSwagger2(true); //实体属性 Swagger2 注解
+        gc.setSwagger2(false); //实体属性 Swagger2 注解
         //idtype todo 不生效啊
         gc.setIdType(IdType.ASSIGN_ID);
         gc.setDateType(DateType.ONLY_DATE);
@@ -41,28 +41,27 @@ public class CodeGenerator {
 
 
         // 数据源配置
-//        DataSourceConfig dsc = new DataSourceConfig();
-//        dsc.setUrl("jdbc:mysql://47.98.248.203:3306/muxin?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false");
-//        // dsc.setSchemaName("public");
-//        dsc.setDriverName("com.mysql.jdbc.Driver");
-//        dsc.setUsername("root");
-//        dsc.setPassword("root123");
-//        mpg.setDataSource(dsc);
-
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:oracle:thin:@47.98.248.203:1521/helowin");
-//         dsc.setSchemaName("helowin");
-        dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
-        dsc.setUsername("MUXIN2");
-        dsc.setPassword("muxin2");
+        dsc.setUrl("jdbc:mysql://47.98.248.203:3306/muxin?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&useSSL=false");
+        // dsc.setSchemaName("public");
+        dsc.setDriverName("com.mysql.cj.jdbc.Driver");
+        dsc.setUsername("root");
+        dsc.setPassword("root123");
         mpg.setDataSource(dsc);
+
+//        DataSourceConfig dsc = new DataSourceConfig();
+//        dsc.setUrl("jdbc:oracle:thin:@47.98.248.203:1521/helowin");
+//        dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
+//        dsc.setUsername("MUXIN2");
+//        dsc.setPassword("muxin2");
+//        mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setParent("com.muxin");
         pc.setModuleName("system");
-        pc.setService("manager");
-        pc.setServiceImpl("manager.impl");
+        pc.setService("service");
+        pc.setServiceImpl("service.impl");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -136,7 +135,7 @@ public class CodeGenerator {
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id");
 //        strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
-        strategy.setInclude("RG_LABEL");
+        strategy.setInclude("user");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

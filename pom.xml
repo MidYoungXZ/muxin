@@ -27,62 +27,35 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
     <hutool.version>5.8.9</hutool.version>
-    <swagger.version>3.0.0</swagger.version>
-    <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
-    <swagger.core.version>1.6.2</swagger.core.version>
     <fastjson.version>2.0.16</fastjson.version>
     <mysql-connector-java.version>8.0.13</mysql-connector-java.version>
-    <mybatis-plus.version>3.4.2</mybatis-plus.version>
+    <mybatis-plus.version>3.4.1</mybatis-plus.version>
     <mybatis-plus.generator.version>3.4.1</mybatis-plus.generator.version>
     <freemarker.version>2.3.28</freemarker.version>
     <spring-gateway.version>2.2.9.RELEASE</spring-gateway.version>
+    <ojdbc8.version>12.2.0.1</ojdbc8.version>
+    <!--swagger-->
+    <swagger-v3-annotations.version>2.1.2</swagger-v3-annotations.version>
+    <swagger3.version>3.0.0</swagger3.version>
+    <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
   </properties>
 
 
   <dependencyManagement>
     <dependencies>
-
+      <!--gateway-->
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-gateway</artifactId>
         <version>${spring-gateway.version}</version>
       </dependency>
-
-      <!-- 本工程 -->
-      <dependency>
-        <groupId>com.muxin</groupId>
-        <artifactId>muxin-common-core</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.muxin</groupId>
-        <artifactId>muxin-common-core</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.muxin</groupId>
-        <artifactId>muxin-common-redis</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.muxin</groupId>
-        <artifactId>muxin-common-swagger</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.muxin</groupId>
-        <artifactId>muxin-common-datasource</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-
-
       <!-- hutool -->
       <dependency>
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-all</artifactId>
         <version>${hutool.version}</version>
       </dependency>
-
+      <!-- Swagger 依赖配置 -->
       <dependency>
         <groupId>io.springfox</groupId>
         <artifactId>springfox-boot-starter</artifactId>
@@ -93,7 +66,6 @@
         <artifactId>swagger-bootstrap-ui</artifactId>
         <version>${swagger-bootstrap-ui.version}</version>
       </dependency>
-      <!-- Swagger 依赖配置 -->
       <dependency>
         <groupId>io.swagger</groupId>
         <artifactId>swagger-models</artifactId>
@@ -130,7 +102,44 @@
       <dependency>
         <groupId>com.baomidou</groupId>
         <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-        <version>3.4.1</version>
+        <version>${mybatis-plus.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.oracle</groupId>
+        <artifactId>ojdbc8</artifactId>
+        <version>${ojdbc8.version}</version>
+      </dependency>
+
+      <!-- 本工程 -->
+      <dependency>
+        <groupId>com.muxin</groupId>
+        <artifactId>muxin-common-openapi</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.muxin</groupId>
+        <artifactId>muxin-common-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.muxin</groupId>
+        <artifactId>muxin-common-basic</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.muxin</groupId>
+        <artifactId>muxin-common-redis</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.muxin</groupId>
+        <artifactId>muxin-common-swagger</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.muxin</groupId>
+        <artifactId>muxin-common-datasource</artifactId>
+        <version>${project.version}</version>
       </dependency>
 
     </dependencies>
