@@ -2,7 +2,7 @@ package com.muxin.system.controller;
 
 
 
-import com.muxin.system.dto.CheckUserVo;
+import com.muxin.system.pojo.dto.CheckUserVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -30,7 +30,7 @@ public class CheckController {
     @Operation( method = "getById",summary = "根据id获取用户信息")
     @GetMapping("/checkUser/getById/{id}")
     @Parameters( @Parameter (name = "id",required = true))
-    public CheckUserVo getById(@PathVariable("id") @Min(1) @Max(20) Long id) {
+    public CheckUserVo getById(@PathVariable("id") @Min(5) @Max(19) Long id) {
         log.info("根据id:{}获取用户信息",id);
         return new CheckUserVo(id, "username", "123456", "123@qq.com", "13812341239");
     }
@@ -38,7 +38,7 @@ public class CheckController {
     @Operation(summary = "根据邮箱获取用户信息")
     @Parameters( @Parameter (name = "email",required = true))
     @GetMapping("/checkUser/getByEmail")
-    public CheckUserVo getByEmail(@NotBlank(message = "邮箱不能为空") @Email String email) {
+    public CheckUserVo getByEmail(@RequestParam @NotBlank(message = "邮箱不能为空") @Email String email) {
         return null;
     }
 

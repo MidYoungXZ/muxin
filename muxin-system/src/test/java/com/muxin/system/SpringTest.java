@@ -1,15 +1,16 @@
 package com.muxin.system;
 
-import com.muxin.system.entity.User;
+import com.muxin.system.pojo.entity.User;
 import com.muxin.system.service.IUserService;
-import org.apache.el.util.ReflectionUtil;
+import io.netty.util.concurrent.SingleThreadEventExecutor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import reactor.core.publisher.Flux;
 
-import java.io.PipedReader;
+import java.util.concurrent.locks.Lock;
 
 
 @RunWith(SpringRunner.class)
@@ -19,16 +20,20 @@ public class SpringTest {
     @Autowired
     private IUserService userService;
 
-    @Test
-    public void test() {
+    public static void main(String[] args) {
 
-        User user = new User();
-        user.setName("muxin");
-        user.setAge(18);
-        user.setEmail("wwwwww@163.com");
-        userService.save(user);
 
-        userService.list().forEach(System.out::println);
+
+
+        Flux<Integer> ints = Flux.range(1, 4)
+                .map(i -> {
+                    if (i <= 3) return i;
+                    throw new RuntimeException("Got to 4");
+                });
+        ints.subscribe(i -> System.out.println(i),
+                error -> System.err.println("Error: " + error));
+
+
     }
 
 

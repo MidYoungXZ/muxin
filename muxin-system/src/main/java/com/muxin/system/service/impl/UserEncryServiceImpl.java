@@ -2,7 +2,7 @@ package com.muxin.system.service.impl;
 
 
 import com.muxin.system.service.UserEncryService;
-import com.muxin.system.dto.UserEncrpyDto;
+import com.muxin.system.pojo.dto.UserEncrpyDto;
 
 import java.util.concurrent.ConcurrentHashMap;
 

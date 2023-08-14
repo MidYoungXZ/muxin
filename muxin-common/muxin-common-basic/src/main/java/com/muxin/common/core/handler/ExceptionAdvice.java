@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import javax.validation.ConstraintViolationException;
 
 //统一拦截异常
-@RestControllerAdvice(basePackages = "com.muxin.demo")
+@RestControllerAdvice(basePackages = "com.muxin")
 public class ExceptionAdvice {
     /**
      * 捕获 {@code BusinessException} 异常
@@ -48,7 +48,6 @@ public class ExceptionAdvice {
      */
     @ExceptionHandler({ConstraintViolationException.class})
     public Result<?> handleConstraintViolationException(ConstraintViolationException ex) {
-        System.out.println(ex);
         if (StringUtils.hasText(ex.getMessage())) {
             return Result.failed(ResultEnum.VALIDATE_FAILED.getCode(), ex.getMessage());
         }

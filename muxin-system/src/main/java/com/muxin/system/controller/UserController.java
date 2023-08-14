@@ -3,7 +3,7 @@ package com.muxin.system.controller;
 
 import com.muxin.common.core.annotation.Prevent;
 import com.muxin.system.service.OtherService;
-import com.muxin.system.dto.UserDto;
+import com.muxin.system.pojo.dto.UserDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

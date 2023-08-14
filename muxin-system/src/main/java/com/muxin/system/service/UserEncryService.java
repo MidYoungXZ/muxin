@@ -1,7 +1,7 @@
 package com.muxin.system.service;
 
 
-import com.muxin.system.dto.UserEncrpyDto;
+import com.muxin.system.pojo.dto.UserEncrpyDto;
 
 public interface UserEncryService {
 

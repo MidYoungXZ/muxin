@@ -1,6 +1,6 @@
 package com.muxin.system.mapper;
 
-import com.muxin.system.entity.User;
+import com.muxin.system.pojo.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

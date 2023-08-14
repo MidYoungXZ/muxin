@@ -2,7 +2,7 @@ package com.muxin.system.service;
 
 
 
-import com.muxin.system.dto.UserDto;
+import com.muxin.system.pojo.dto.UserDto;
 
 import java.util.List;
 

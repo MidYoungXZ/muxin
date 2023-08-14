@@ -2,7 +2,7 @@ package com.muxin.system.controller;
 
 
 
-import com.muxin.system.dto.UserEncrpyDto;
+import com.muxin.system.pojo.dto.UserEncrpyDto;
 import com.muxin.system.service.UserEncryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

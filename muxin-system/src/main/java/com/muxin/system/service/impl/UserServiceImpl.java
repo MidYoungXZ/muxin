@@ -1,6 +1,6 @@
 package com.muxin.system.service.impl;
 
-import com.muxin.system.entity.User;
+import com.muxin.system.pojo.entity.User;
 import com.muxin.system.mapper.UserMapper;
 import com.muxin.system.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

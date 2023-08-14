@@ -1,4 +1,4 @@
-package com.muxin.system.dto;
+package com.muxin.system.pojo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

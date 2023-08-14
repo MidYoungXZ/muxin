@@ -10,9 +10,6 @@ import java.lang.annotation.*;
  * 使用：
  * 在相应需要防刷的方法上加上
  * 该注解，即可
- *
- * @author: zetting
- * @date:2018/12/29
  */
 @Documented
 @Target({ElementType.METHOD})

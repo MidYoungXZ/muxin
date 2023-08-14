@@ -1,4 +1,4 @@
-package com.muxin.system.dto;
+package com.muxin.system.pojo.dto;
 
 import com.muxin.common.core.annotation.CheckMobile;
 

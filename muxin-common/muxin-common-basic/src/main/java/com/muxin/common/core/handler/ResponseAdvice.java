@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * 进行相应的处理操作后，再将结果返回给客户端
  */
 // 如果引入了swagger或knife4j的文档生成组件，这里需要仅扫描自己项目的包，否则文档无法正常生成
-@RestControllerAdvice(basePackages = "com.muxin.demo")
+@RestControllerAdvice(basePackages = "com.muxin")
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
     /**
      * 判断是否要交给 beforeBodyWrite 方法执行，ture：需要；false：不需要

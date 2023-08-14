@@ -17,10 +17,6 @@
         <module>muxin-common-redis</module>
         <module>muxin-common-datasource</module>
         <module>muxin-common-openapi</module>
+        <module>muxin-common-api</module>
     </modules>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
 </project>
