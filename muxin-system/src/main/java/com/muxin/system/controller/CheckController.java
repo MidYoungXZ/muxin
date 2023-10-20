@@ -28,8 +28,8 @@ import javax.validation.constraints.NotBlank;
 public class CheckController {
 
     @Operation( method = "getById",summary = "根据id获取用户信息")
-    @GetMapping("/checkUser/getById/{id}")
     @Parameters( @Parameter (name = "id",required = true))
+    @GetMapping("/checkUser/getById/{id}")
     public CheckUserVo getById(@PathVariable("id") @Min(5) @Max(19) Long id) {
         log.info("根据id:{}获取用户信息",id);
         return new CheckUserVo(id, "username", "123456", "123@qq.com", "13812341239");

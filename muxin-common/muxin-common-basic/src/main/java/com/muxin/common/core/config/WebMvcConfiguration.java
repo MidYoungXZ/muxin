@@ -12,7 +12,7 @@ import java.util.List;
  * @create: 2022/9/21
  * @Description:
  */
-@Configuration
+//@Configuration
 public class WebMvcConfiguration implements WebMvcConfigurer {
     /**
      * 交换MappingJackson2HttpMessageConverter与第一位元素

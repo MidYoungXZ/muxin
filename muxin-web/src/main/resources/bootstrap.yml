@@ -1,0 +1,2 @@
+## 支持bean重复覆盖
+spring.main.allow-bean-definition-overriding: true

@@ -38,7 +38,7 @@ spring:
 
 
 #密钥
-secretkey: 123456
+#secretkey: 123456
 
 swagger:
   enabled: true
@@ -51,10 +51,10 @@ swagger:
     email: xxx@qq.com
     url: www.baidu.com
 
-spring.mvc:
-  #  这个mvc的配置是springboot2.6.1不支持swagger3的折衷配置，后面考虑升级Springboot版本或降级版本
-  pathmatch:
-    matching-strategy: ant_path_matcher
+#spring.mvc:
+#  #  这个mvc的配置是springboot2.6.1不支持swagger3的折衷配置，后面考虑升级Springboot版本或降级版本
+#  pathmatch:
+#    matching-strategy: ant_path_matcher
 
 
 mybatis-plus:

@@ -1,16 +1,11 @@
 package com.muxin.system;
 
-import com.muxin.system.pojo.entity.User;
 import com.muxin.system.service.IUserService;
-import io.netty.util.concurrent.SingleThreadEventExecutor;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import reactor.core.publisher.Flux;
-
-import java.util.concurrent.locks.Lock;
 
 
 @RunWith(SpringRunner.class)
