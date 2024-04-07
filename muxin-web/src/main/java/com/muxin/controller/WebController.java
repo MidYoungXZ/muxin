@@ -5,6 +5,7 @@ import com.muxin.pojo.TestEvent;
 import com.muxin.pojo.TestObject;
 import com.muxin.service.BsfitGraphResponse;
 import com.muxin.service.GDBDriverServiceApi;
+import com.muxin.service.ITestService;
 import com.muxin.service.TestEventPublisher;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -32,6 +33,10 @@ public class WebController {
     @Autowired
     private GDBDriverServiceApi gdbDriverServiceApi;
 
+    @Autowired(required = false)
+    private ITestService iTestService;
+
+
 
 
     @Operation(summary = "testAPi")
@@ -58,6 +63,11 @@ public class WebController {
     @GetMapping(value = "/string")
     public String string2(String name) {
         try {
+            if (iTestService!=null){
+                iTestService.printYY();
+            }else {
+                System.out.println("iTestService is null");
+            }
             System.out.println("string2:"+name);
             Thread.sleep(50);
         } catch (InterruptedException e) {

@@ -8,12 +8,14 @@ import com.muxin.service.BsfitGraphResponse;
 import io.swagger.v3.core.util.Json;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.security.OAuthScope;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -70,5 +72,15 @@ public class SpringDocDemoController {
         System.err.println("postObject:"+postObject);
         return "success";
     }
+
+
+
+
+    @PostMapping(value = "/audit")
+    public String put2(@RequestBody List<Map<String,Object>> postObject) {
+        System.err.println("postObject:"+postObject);
+        return "success";
+    }
+
 
 }

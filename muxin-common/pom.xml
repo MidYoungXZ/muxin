@@ -18,5 +18,6 @@
         <module>muxin-common-datasource</module>
         <module>muxin-common-openapi</module>
         <module>muxin-common-api</module>
+        <module>muxin-common-schedule</module>
     </modules>
 </project>

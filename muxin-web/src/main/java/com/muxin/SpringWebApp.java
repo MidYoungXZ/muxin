@@ -3,6 +3,8 @@ package com.muxin;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 
 /**
  * @Projectname: muxin
@@ -14,6 +16,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
+@ComponentScan(useDefaultFilters = true, basePackages = {"com.muxin.**"})
 public class SpringWebApp {
 
     public static void main(String[] args) {

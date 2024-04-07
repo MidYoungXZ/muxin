@@ -1,0 +1,71 @@
+<assembly>
+	<id>bin</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>true</includeBaseDirectory>
+
+	<fileSets>
+		<!-- 启停脚本 -->
+		<fileSet>
+			<directory>${project.basedir}/src/main/assembly</directory>
+			<includes>
+				<include>Dockerfile</include>
+				<include>*.sh</include>
+			</includes>
+			<filtered>true</filtered>
+			<fileMode>0755</fileMode>
+			<lineEnding>unix</lineEnding>
+			<outputDirectory>${file.separator}</outputDirectory>
+		</fileSet>
+		<!-- 配置文件 -->
+		<fileSet>
+			<directory>${project.basedir}/src/main/resources/${package.environment}</directory>
+			<outputDirectory>${file.separator}</outputDirectory>
+			<includes>
+				<include>*.yml</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.basedir}/src/main/resources</directory>
+			<outputDirectory>${file.separator}</outputDirectory>
+			<includes>
+				<include>*.xml</include>
+			</includes>
+		</fileSet>
+		<!-- 静态资源文件 -->
+		<fileSet>
+			<directory>${project.basedir}</directory>
+			<outputDirectory>${file.separator}</outputDirectory>
+			<includes>
+				<include>static/**</include>
+			</includes>
+		</fileSet>
+		<!--sql 和文档-->
+		<fileSet>
+			<directory>${project.basedir}</directory>
+			<outputDirectory>${file.separator}</outputDirectory>
+			<includes>
+				<include>doc/**</include>
+				<include>sql/**</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}</directory>
+			<outputDirectory>/</outputDirectory>
+			<includes>
+				<include>${project.name}-${project.version}.jar</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+	<dependencySets>
+		<!-- libs -->
+		<dependencySet>
+			<outputDirectory>/libs</outputDirectory>
+			<useProjectArtifact>true</useProjectArtifact>
+			<scope>runtime</scope>
+		</dependencySet>
+	</dependencySets>
+
+</assembly>
