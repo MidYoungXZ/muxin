@@ -19,6 +19,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>cn.com.bsfit.frms</groupId>
+            <artifactId>stream-cube-pre-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>com.muxin</groupId>
             <artifactId>muxin-common-openapi</artifactId>
         </dependency>
@@ -39,6 +44,14 @@
             <artifactId>hibernate-validator</artifactId>
             <version>6.0.17.Final</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
     <build>

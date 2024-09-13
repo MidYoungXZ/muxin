@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,25 @@ public class SpringDocDemoController {
 
     @Value("${test.name}")
     private String name;
+
+
+
+    @PostMapping(value = "/actuator/health")
+    public Map string(@RequestBody String events) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", "UP");
+        hashMap.put("events.length", events.length());
+        return hashMap;
+    }
+
+    @PostMapping(value = "/actuator/health/sleep")
+    public Map stringS(@RequestBody String events) throws InterruptedException {
+        Thread.sleep(20);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", "UP");
+        hashMap.put("events.length", events.length());
+        return hashMap;
+    }
 
 
     @Operation(summary = "get无参请求")

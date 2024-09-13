@@ -1,0 +1,20 @@
+spring:
+  batch:
+    job:
+      #设置为 false -需要jobLaucher.run执行
+      enabled: true
+
+server:
+  port: 8665
+
+spring.datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://10.100.1.102:3306/sde_test1?serverTimezone=GMT%2B8&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 初始化数据库，文件在依赖jar包中
+    sql:
+      init:
+        schema-locations: classpath:org/springframework/batch/core/schema-mysql.sql
+        mode: never
+        #mode: never

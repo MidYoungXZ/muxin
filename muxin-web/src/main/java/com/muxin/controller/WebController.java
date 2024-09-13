@@ -1,5 +1,6 @@
 package com.muxin.controller;
 
+import cn.com.bsfit.frms.pre.StreamCubePreClient;
 import com.muxin.pojo.PageReqVO;
 import com.muxin.pojo.TestEvent;
 import com.muxin.pojo.TestObject;
@@ -36,7 +37,24 @@ public class WebController {
     @Autowired(required = false)
     private ITestService iTestService;
 
+    @Autowired
+    private StreamCubePreClient streamCubePreClient;
 
+
+    @Operation(summary = "demo")
+    @GetMapping(value = "/demo")
+    public String demo() {
+
+//        AsOperateMessageDTO asOperateMessageDTO = new AsOperateMessageDTO();
+//        asOperateMessageDTO.delete("memCachedKey");
+//        MemCachedItem memCachedItem = new MemCachedItem();
+//        asOperateMessageDTO.write();
+//
+//        streamCubePreClient.asyncPushMessage();
+
+
+        return "success";
+    }
 
 
     @Operation(summary = "testAPi")

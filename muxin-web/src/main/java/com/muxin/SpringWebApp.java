@@ -20,6 +20,7 @@ import org.springframework.context.annotation.FilterType;
 public class SpringWebApp {
 
     public static void main(String[] args) {
+        System.out.println("availableProcessors"+Runtime.getRuntime().availableProcessors());
         SpringApplication.run(SpringWebApp.class, args);
     }
 

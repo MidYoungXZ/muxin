@@ -1,12 +1,10 @@
 package com.muxin.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Projectname: muxin
@@ -17,16 +15,26 @@ import java.time.Duration;
  */
 
 @RestController
-@RequestMapping(value = "/webflux")
+@RequestMapping(value = "/")
 public class WebFluxController {
 
 
-
-    @GetMapping(value = "/string")
-    public Mono<String> string() {
-        return Mono.just("success").delayElement(Duration.ofMillis(50));
+    @PostMapping(value = "/actuator/health")
+    public Map string(@RequestBody String events) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", "UP");
+        hashMap.put("events.length", events.length());
+        return hashMap;
     }
 
+    @PostMapping(value = "/actuator/health/sleep")
+    public Map stringS(@RequestBody String events) throws InterruptedException {
+        Thread.sleep(20);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("status", "UP");
+        hashMap.put("events.length", events.length());
+        return hashMap;
+    }
 
 
 }

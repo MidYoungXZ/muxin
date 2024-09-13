@@ -22,8 +22,9 @@ public class MainTest {
      * @param args
      */
     public static void main(String[] args) {
+        long l = System.currentTimeMillis();
         // 环形数组大小
-        int ringBufferSize = 1024 * 1024;
+        int ringBufferSize = 1024 * 32;
 
         // 创建一个线程工厂提供线程来触发Consumer的事件处理
         RingBuffer<Order> ringBuffer = RingBuffer
@@ -33,7 +34,7 @@ public class MainTest {
         SequenceBarrier barrier = ringBuffer.newBarrier();
 
         // 创建多个消费者
-        OrderWorkHandler[] workHandlers = new OrderWorkHandler[16];
+        OrderWorkHandler[] workHandlers = new OrderWorkHandler[4];
         for (int i = 0; i < workHandlers.length; i++) {
             workHandlers[i] = new OrderWorkHandler(i);
         }
@@ -49,12 +50,14 @@ public class MainTest {
         workerPool.start(threadPool);
 
         // 模拟100个生产者，每个生产者生产100条消息
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 1; i <= 4; i++) {
             OrderProducer orderProducer = new OrderProducer(ringBuffer);
-            for (int j = 1; j <= 100; j++) {
+            for (int j = 1; j <= 100000; j++) {
                 orderProducer.setData(UUID.randomUUID().toString());
             }
         }
+        long l2 = System.currentTimeMillis();
+        System.out.println("cost "+(l2-l));
         System.exit(0);
     }
 }

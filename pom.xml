@@ -29,6 +29,7 @@
         <module>muxin-nioserver</module>
         <module>muxin-nioclient</module>
         <module>muxin-resteasy</module>
+        <module>muxin-batch</module>
     </modules>
 
     <properties>

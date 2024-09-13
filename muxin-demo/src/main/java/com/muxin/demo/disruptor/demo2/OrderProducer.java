@@ -23,11 +23,11 @@ public class OrderProducer {
      * 生产数据
      */
     public void setData(String data) {
-        try {
-            Thread.sleep(10);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(10);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         // 1、获取待生产下一个的序号
         long sequeuence = ringBuffer.next();
         try {

@@ -8,11 +8,18 @@ package com.muxin.demo.disruptor.demo1;
  * @description:
  */
 import com.lmax.disruptor.EventHandler;
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 消费者
  */
 public class StringEventHandler implements EventHandler<StringEvent> {
+
+
+    private List<StringEvent> events =new ArrayList<>(10);
 
     /**
      * 消费数据的方法
@@ -23,8 +30,16 @@ public class StringEventHandler implements EventHandler<StringEvent> {
      */
     @Override
     public void onEvent(StringEvent stringEvent, long sqeueuence, boolean endOfBatch) {
-        System.out.println(
-                "消费 -->" + stringEvent.getValue() + " sqeueuence-->" + +sqeueuence + "  endOfBatch-->"
-                        + endOfBatch);
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        events.add(stringEvent);
+        if (events.size() >= 10 || endOfBatch) {
+            System.out.println(
+                    "消费 -->" +"events:"+events.size());
+            events.clear();
+        }
     }
 }

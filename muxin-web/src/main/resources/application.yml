@@ -4,7 +4,14 @@ public.cloud.service.url.rgas-adapter: 192.168.92.114:8201
 test.name: lisi
 test.age: 18
 
+server.port: 7770
 springdoc:
   api-docs:
     version: openapi_3_0
     enabled: true
+management:
+  endpoints:
+    enabled-by-default: false #关闭监控
+    web:
+      exposure:
+        include: '*'
