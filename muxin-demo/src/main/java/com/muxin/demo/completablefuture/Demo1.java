@@ -4,6 +4,7 @@ import cn.hutool.core.thread.ThreadUtil;
 import org.aspectj.weaver.World;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import java.io.IOException;
 import java.util.concurrent.*;
 
 /**
@@ -164,7 +165,8 @@ public class Demo1 {
     }
 
     /**
-     * 根据多个 CompletableFuture 对象生成一个新的 CompletableFuture 对象，等待所有异步任务执行完毕后，把所有的异步任务结果封装到一个数组对象中并返回。
+     * 根据多个 CompletableFuture 对象生成一个新的 CompletableFuture 对象，
+     * 等待所有异步任务执行完毕后，把所有的异步任务结果封装到一个数组对象中并返回。
      */
     public static void allOf() throws Exception{
         long l = System.currentTimeMillis();
@@ -182,6 +184,9 @@ public class Demo1 {
         System.out.println("Future1 result: " + future1.get());
         System.out.println("Future2 result: " + future2.get());
         System.out.println("cost time: " + (l2 - l));
+
+        System.out.println(allFuture.get());
+
 //        Future1 result: Hello
 //        Future2 result:World
 //        cost time: 2008
@@ -207,23 +212,6 @@ public class Demo1 {
     }
 
 
-
-
-
-
-
-    public static void main(String[] args) throws Exception{
-//        thenRun();
-//        thenApply();
-//        thenAccept();
-//        thenCombine();
-//        thenCompose();
-//        allOf();
-        anyOf();
-
-
-
-    }
 
     /**
      * CompletableFuture实例化创建
@@ -266,6 +254,104 @@ public class Demo1 {
      * exceptionally：返回一个新的CompletableFuture，CompletableFuture提供了异常捕获回调exceptionally，相当于同步调用中的try/catch。
      *
      */
+
+    public static void main2(String[] args) throws Exception{
+//        thenRun();
+//        thenApply();
+//        thenAccept();
+//        thenCombine();
+//        thenCompose();
+        allOf();
+//        anyOf();
+
+    }
+
+    public static void main1(String[] args) throws IOException {
+        CompletableFuture<Integer> taskC = CompletableFuture.supplyAsync(() -> {
+            System.out.println("任务A");
+            return 78;
+        }).applyToEither(CompletableFuture.supplyAsync(() -> {
+            System.out.println("任务B");
+            return 66;
+        }), resultFirst -> {
+            System.out.println("任务C");
+            return resultFirst;
+        });
+
+        System.out.println(taskC.join());
+        System.in.read();
+    }
+
+    public static void main3(String[] args) throws IOException {
+        CompletableFuture<Integer> taskC = CompletableFuture.supplyAsync(() -> {
+            System.out.println("任务A");
+//            int i = 1 / 0;
+            return 78;
+        }).applyToEither(CompletableFuture.supplyAsync(() -> {
+            System.out.println("任务B");
+            return 66;
+        }), resultFirst -> {
+            System.out.println("任务C");
+            return resultFirst;
+        }).handle((r,ex) -> {
+            System.out.println("handle:" + r);
+            System.out.println("handle:" + ex);
+            return -1;
+        });
+        /*.exceptionally(ex -> {
+            System.out.println("exceptionally:" + ex);
+            return -1;
+        });*/
+        /*.whenComplete((r,ex) -> {
+            System.out.println("whenComplete:" + r);
+            System.out.println("whenComplete:" + ex);
+        });*/
+
+
+        System.out.println(taskC.join());
+        System.in.read();
+    }
+
+
+    public static void main(String[] args) throws IOException {
+        long l = System.currentTimeMillis();
+        CompletableFuture.allOf(
+                CompletableFuture.runAsync(() -> {
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("任务A");
+                }).handle((r,e)->{
+                    System.out.println("handle:" + r);
+                    System.out.println("handle:" + e);
+                    return -1;
+                }),
+                CompletableFuture.runAsync(() -> {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("任务B");
+                }),
+                CompletableFuture.runAsync(() -> {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("任务C");
+                })
+        ).thenRun(() -> {
+            System.out.println("任务D");
+            System.out.println(System.currentTimeMillis()-l);
+        });
+
+        System.in.read();
+    }
+
 
 
 

@@ -35,6 +35,7 @@ public class MainTest {
         // 连接消费者方法
         disruptor.handleEventsWith(new StringEventHandler());
 
+
         // 启动消费者
         disruptor.start();
 

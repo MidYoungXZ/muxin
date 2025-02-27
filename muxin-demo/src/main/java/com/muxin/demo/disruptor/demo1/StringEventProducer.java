@@ -23,7 +23,7 @@ public class StringEventProducer {
      */
     public void setData(String data) {
         try {
-            Thread.sleep(10);
+            Thread.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
