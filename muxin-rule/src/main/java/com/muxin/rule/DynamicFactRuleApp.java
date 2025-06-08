@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DroolsDynamicFactApp {
+public class DynamicFactRuleApp {
     public static void main(String[] args) {
-        SpringApplication.run(DroolsDynamicFactApp.class, args);
+        SpringApplication.run(DynamicFactRuleApp.class, args);
     }
 }
