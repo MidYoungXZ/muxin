@@ -30,6 +30,7 @@
         <module>muxin-nioclient</module>
         <module>muxin-resteasy</module>
         <module>muxin-batch</module>
+        <module>muxin-rule</module>
     </modules>
 
     <properties>

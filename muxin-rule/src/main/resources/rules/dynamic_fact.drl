@@ -1,0 +1,17 @@
+package rules
+
+import com.muxin.rule.domain.DynamicFact;
+
+rule "VIP用户"
+when
+    $f : DynamicFact(get("userType") == "VIP")
+then
+    System.out.println("规则命中：VIP用户 => " + $f);
+end
+
+rule "高金额用户"
+when
+    $f : DynamicFact(get("amount") != null && (Integer)get("amount") > 1000)
+then
+    System.out.println("规则命中：高金额 => " + $f);
+end
