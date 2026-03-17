@@ -1,7 +1,7 @@
 package com.muxin.common.core.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.Base64Utils;
+import java.util.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -33,7 +33,7 @@ public class AESUtil {
             byte[] byteContent = content.getBytes("utf-8");
             cipher.init(Cipher.ENCRYPT_MODE, getSecretKey(password));// 初始化为加密模式的密码器
             byte[] result = cipher.doFinal(byteContent);// 加密
-            return Base64Utils.encodeToString(result);
+            return Base64.getEncoder().encodeToString(result);
         } catch (Exception ex) {
             log.error(ex.getStackTrace().toString());
         }
@@ -55,7 +55,7 @@ public class AESUtil {
             //使用密钥初始化，设置为解密模式
             cipher.init(Cipher.DECRYPT_MODE, getSecretKey(password));
             //执行操作
-            byte[] result = cipher.doFinal(Base64Utils.decodeFromString(content));
+            byte[] result = cipher.doFinal(Base64.getDecoder().decode(content));
             return new String(result, "utf-8");
         } catch (Exception ex) {
             log.error(ex.getStackTrace().toString());

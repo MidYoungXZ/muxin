@@ -76,7 +76,7 @@ public class Demo {
         webClient.get().uri("www.baidu.com")
                 .accept(MediaType.ALL)
                 .retrieve()
-                .onStatus(HttpStatus::is1xxInformational,clientResponse1 -> {
+                .onStatus(status -> status.is1xxInformational(),clientResponse1 -> {
                     System.out.println("");
                     return Mono.error(new RuntimeException());
                 })

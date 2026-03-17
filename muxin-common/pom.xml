@@ -1,17 +1,21 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <artifactId>muxin</artifactId>
         <groupId>com.muxin</groupId>
+        <artifactId>muxin</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
     <artifactId>muxin-common</artifactId>
     <packaging>pom</packaging>
 
     <name>muxin-common</name>
-    <url>http://maven.apache.org</url>
+    <description>Muxin Common Modules</description>
+
     <modules>
         <module>muxin-common-basic</module>
         <module>muxin-common-redis</module>
@@ -20,4 +24,5 @@
         <module>muxin-common-api</module>
         <module>muxin-common-schedule</module>
     </modules>
+
 </project>

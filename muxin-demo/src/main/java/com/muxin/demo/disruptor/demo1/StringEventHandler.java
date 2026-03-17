@@ -8,7 +8,6 @@ package com.muxin.demo.disruptor.demo1;
  * @description:
  */
 import com.lmax.disruptor.EventHandler;
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.List;

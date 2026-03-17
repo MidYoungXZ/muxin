@@ -1,5 +1,0 @@
-<flow>
-    <chain name="riskChain">
-        THEN(checkUserType, checkAmount)
-    </chain>
-</flow>
